@@ -1,13 +1,14 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+np.random.seed(42)
 #Initial Health Indicators of Country A
 health_indi=np.array([
-      'population'
-      'gdp '
-      'inflation'
-      'happiness'
-      'food '
+      'population',
+      'gdp',
+      'inflation',
+      'happiness',
+      'food',
       'energy' 
 ])
 
@@ -19,7 +20,7 @@ health_indi_value=np.array([
         4.5,               # ~4.5% 
         40,                # Scaled to your 0-100 system
         330000000,         # ~330 Million tonnes (annual grain production)
-        1900000,           # ~1.9 Million GWh (annual electricity generation)
+        1900000           # ~1.9 Million GWh (annual electricity generation)
 ])
 
 
@@ -46,7 +47,7 @@ for year in range(1,21):
     population *=(1+population_growth/100)
 
     #GDP growth around (6%-8%)
-    gdp_growth=np.random.uniform(6,8)
+    gdp_growth=np.random.uniform(4,9)
     gdp *=(1+gdp_growth/100)
 
     #Inflation around (3.5%-5.5%)
@@ -56,11 +57,11 @@ for year in range(1,21):
 
     #Impact on happiness(affected by inflation and gdp)
     #1.Impact of inflation on happiness
-    if inflation >6:
+    if inflation>=6:
         happiness -=4
-    elif 3.5<inflation>=6:
+    elif 3.5<inflation<6:
         happiness +=1
-    elif 2<=inflation>=3.5:
+    elif 2<=inflation<=3.5:
         happiness +=2
 
     #Impact of gdp on happiness
@@ -74,11 +75,11 @@ for year in range(1,21):
 
     #Creating major events list 
     events=[
-        'Economic Boom'
-        'Recession'
-        'Drought'
-        'Breakthrough'
-        'Pandemic'
+        'Economic Boom',
+        'Recession',
+        'Drought',
+        'Breakthrough',
+        'Pandemic',
         'Nothing'
     ]
     event = np.random.choice(events)
@@ -147,6 +148,3 @@ plt.show()
 
 #Statistical summary
 print(df.describe())
-
-
-
