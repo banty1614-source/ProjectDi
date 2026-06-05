@@ -148,6 +148,9 @@ plt.show()
 
 #Statistical summary
 print(df.describe())
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 9e469f872d2c927ee5b2d435e63b4300ea9fc174
